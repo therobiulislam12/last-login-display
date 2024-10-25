@@ -60,12 +60,15 @@ add_action( 'manage_users_custom_column', 'ri_lld_show_last_login_data', 10, 3 )
  * @param int $user_id
  *
  * @return string
- * @since 1.0.0
+ * @since 1.1.0
  */
 function ri_lld_show_last_login_data( $value, $column_name, $user_id ) {
+    // set format
+    $date_format = get_option('date_format'). ' - ' . get_option('time_format');
+
     if ( $column_name == 'last_login' ) {
         $last_login = get_user_meta( $user_id, 'last_login', true );
-        return $last_login ? date( 'Y/m/d H:i:s', strtotime( $last_login ) ) : 'Never';
+        return $last_login ? date( $date_format, strtotime( $last_login ) ) : 'Never';
     }
     return $value;
 }
