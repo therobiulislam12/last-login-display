@@ -64,8 +64,11 @@ The plugin hooks into WordPress's native `wp_login` action, so it should work wi
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.0.0 =
 Initial release – no upgrades yet.
+
+= 1.1.0 =
+Change the date format - automatically set wordpress site date format
 
 == License ==
 
